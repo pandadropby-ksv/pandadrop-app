@@ -7,16 +7,16 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg: #fafafa;
-            --color-surface: #ffffff;
-            --color-text: #1a1a1a;
-            --color-text-secondary: #71717a;
-            --color-border: #e4e4e7;
+            --color-bg: #ffffff;
+            --color-surface: #fafafa;
+            --color-text: #000000;
+            --color-text-secondary: #6e6e73;
+            --color-border: #d4d4d8;
             --color-accent: #000000;
-            --font-serif: 'Playfair Display', serif;
+            --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Inter', sans-serif;
         }
 
@@ -46,7 +46,7 @@
 
         .page {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.5s ease;
         }
 
         .page.active {
@@ -54,93 +54,97 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* HEADER */
         .header {
-            padding: 20px 24px;
+            padding: 24px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            background: rgba(250, 250, 250, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 10;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 0.5px solid var(--color-border);
         }
 
         .logo {
             font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .header-back {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 28px;
             color: var(--color-text);
+            font-weight: 300;
         }
 
         /* HERO */
         .hero {
-            padding: 60px 32px 40px;
+            padding: 100px 32px 60px;
             text-align: center;
+            position: relative;
         }
 
         .hero-label {
-            font-size: 11px;
-            letter-spacing: 4px;
+            font-size: 10px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 24px;
-            font-weight: 500;
+            margin-bottom: 32px;
+            font-weight: 400;
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 40px;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
 
         .hero-title em {
             font-style: italic;
+            font-weight: 400;
         }
 
         .hero-text {
             font-size: 15px;
             color: var(--color-text-secondary);
-            line-height: 1.7;
-            max-width: 320px;
-            margin: 0 auto 32px;
+            line-height: 1.8;
+            max-width: 340px;
+            margin: 0 auto 40px;
             font-weight: 300;
         }
 
         .btn {
             display: inline-block;
-            padding: 16px 40px;
+            padding: 18px 48px;
             border-radius: 0;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 400;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: none;
             text-decoration: none;
             width: 100%;
-            max-width: 280px;
+            max-width: 300px;
         }
 
         .btn-primary {
@@ -149,14 +153,14 @@
         }
 
         .btn-primary:hover {
-            opacity: 0.9;
+            opacity: 0.85;
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--color-text);
-            border: 1px solid var(--color-border);
-            margin-top: 12px;
+            border: 0.5px solid var(--color-border);
+            margin-top: 16px;
         }
 
         .btn-secondary:hover {
@@ -167,34 +171,37 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 14px;
             background: var(--color-surface);
             color: var(--color-text);
-            border: 1px solid var(--color-border);
-            padding: 14px 24px;
-            margin-bottom: 12px;
+            border: 0.5px solid var(--color-border);
+            padding: 16px 24px;
+            margin-bottom: 14px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            letter-spacing: 1px;
         }
 
         .btn-social:active {
             background: var(--color-bg);
+            transform: translateY(-1px);
         }
 
         /* SECTIONS */
         .section {
-            padding: 0 24px 40px;
+            padding: 0 24px 48px;
         }
 
         .section-title {
             font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--color-border);
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 0.5px solid var(--color-border);
+            letter-spacing: -0.5px;
         }
 
         /* CATEGORIES */
@@ -204,17 +211,17 @@
         }
 
         .category-main-item {
-            padding: 24px;
+            padding: 28px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 1px solid var(--color-border);
-            transition: background 0.2s;
+            border-bottom: 0.5px solid var(--color-border);
+            transition: all 0.3s;
         }
 
         .category-main-item:active {
-            background: var(--color-bg);
+            background: #f0f0f0;
         }
 
         .category-main-item:last-child {
@@ -222,53 +229,75 @@
         }
 
         .category-main-label {
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            font-weight: 400;
         }
 
         .category-main-name {
             font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
         }
 
         .category-main-arrow {
             color: var(--color-text-secondary);
-            font-size: 20px;
+            font-size: 24px;
+            font-weight: 300;
         }
 
-        /* SUB CATEGORIES */
+        /* SUB CATEGORIES WITH PHOTOS */
         .sub-category-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 1px;
             background: var(--color-border);
         }
 
         .sub-category-item {
             background: var(--color-surface);
-            padding: 32px 20px;
-            text-align: center;
+            position: relative;
             cursor: pointer;
-            transition: background 0.2s;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            transition: all 0.4s ease;
         }
 
         .sub-category-item:active {
-            background: var(--color-bg);
+            transform: scale(0.98);
         }
 
-        .sub-category-icon {
-            font-size: 36px;
-            margin-bottom: 12px;
+        .sub-category-image {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sub-category-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 20px 20px;
+            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.7));
         }
 
         .sub-category-name {
             font-family: var(--font-serif);
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 400;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .sub-category-desc {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            font-weight: 300;
         }
 
         /* BRANDS */
@@ -277,17 +306,17 @@
         }
 
         .brand-item {
-            padding: 20px 24px;
+            padding: 24px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 1px solid var(--color-border);
-            transition: background 0.2s;
+            border-bottom: 0.5px solid var(--color-border);
+            transition: all 0.2s;
         }
 
         .brand-item:active {
-            background: var(--color-bg);
+            background: #f0f0f0;
         }
 
         .brand-item:last-child {
@@ -296,30 +325,37 @@
 
         .brand-name {
             font-family: var(--font-serif);
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .brand-desc {
+            font-size: 13px;
+            color: var(--color-text-secondary);
         }
 
         /* INFO CARDS */
         .info-card {
             background: var(--color-surface);
-            padding: 24px;
-            margin-bottom: 16px;
-            border: 1px solid var(--color-border);
+            padding: 32px 28px;
+            margin-bottom: 20px;
+            border: 0.5px solid var(--color-border);
         }
 
         .info-card-title {
             font-family: var(--font-serif);
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 16px;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
         }
 
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--color-border);
+            padding: 14px 0;
+            border-bottom: 0.5px solid var(--color-border);
         }
 
         .info-row:last-child {
@@ -328,116 +364,70 @@
 
         .info-label {
             color: var(--color-text-secondary);
-            font-weight: 400;
+            font-weight: 300;
+            font-size: 14px;
         }
 
         .info-value {
-            font-weight: 500;
+            font-weight: 400;
             text-align: right;
+            font-size: 14px;
         }
 
         /* ORDER FORM */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .form-label {
             display: block;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 400;
         }
 
         .form-input,
         .form-textarea {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--color-border);
+            padding: 16px 18px;
+            border: 0.5px solid var(--color-border);
             background: var(--color-surface);
             font-size: 15px;
             font-family: var(--font-sans);
-            transition: border-color 0.2s;
+            transition: all 0.3s;
+            font-weight: 300;
         }
 
         .form-input:focus,
         .form-textarea:focus {
             outline: none;
             border-color: var(--color-text);
+            background: #fff;
         }
 
         .form-textarea {
-            min-height: 120px;
+            min-height: 140px;
             resize: vertical;
         }
 
         /* CART */
-        .cart-item {
-            background: var(--color-surface);
-            padding: 20px;
-            margin-bottom: 1px;
-        }
-
-        .cart-item-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .cart-item-brand {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-        }
-
-        .cart-item-price {
-            font-weight: 600;
-        }
-
-        .cart-item-name {
-            font-family: var(--font-serif);
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-
-        .cart-item-details {
-            font-size: 13px;
-            color: var(--color-text-secondary);
-            margin-bottom: 12px;
-        }
-
-        .cart-item-qty {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .qty-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--color-border);
-            background: transparent;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
         .cart-summary {
             background: var(--color-surface);
-            padding: 24px;
-            margin-top: 24px;
-            border: 1px solid var(--color-border);
+            padding: 32px 28px;
+            margin-top: 32px;
+            border: 0.5px solid var(--color-border);
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             font-size: 14px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 16px;
+            border-bottom: 0.5px solid var(--color-border);
         }
 
         .summary-row:last-child {
@@ -445,43 +435,47 @@
         }
 
         .summary-row.total {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 2px solid var(--color-border);
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+            font-family: var(--font-serif);
         }
 
         /* PROFILE */
         .profile-header {
-            padding: 60px 32px 32px;
+            padding: 80px 32px 40px;
             text-align: center;
             background: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 0.5px solid var(--color-border);
         }
 
         .profile-avatar {
-            width: 80px;
-            height: 80px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             background: var(--color-bg);
-            margin: 0 auto 20px;
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 40px;
+            border: 0.5px solid var(--color-border);
         }
 
         .profile-name {
             font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 28px;
+            font-weight: 300;
             margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         .profile-username {
             color: var(--color-text-secondary);
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 300;
         }
 
         .menu-list {
@@ -490,17 +484,17 @@
         }
 
         .menu-item {
-            padding: 20px 24px;
+            padding: 22px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 1px solid var(--color-border);
-            transition: background 0.2s;
+            border-bottom: 0.5px solid var(--color-border);
+            transition: all 0.2s;
         }
 
         .menu-item:active {
-            background: var(--color-bg);
+            background: #f0f0f0;
         }
 
         .menu-item:last-child {
@@ -509,10 +503,13 @@
 
         .menu-item-label {
             font-size: 15px;
+            font-weight: 300;
         }
 
         .menu-item-arrow {
             color: var(--color-text-secondary);
+            font-size: 20px;
+            font-weight: 300;
         }
 
         /* BOTTOM NAV */
@@ -524,11 +521,11 @@
             width: 100%;
             max-width: 480px;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--color-border);
+            backdrop-filter: blur(20px);
+            border-top: 0.5px solid var(--color-border);
             display: flex;
             justify-content: space-around;
-            padding: 12px 0;
+            padding: 16px 0;
             z-index: 100;
         }
 
@@ -537,10 +534,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             cursor: pointer;
             color: var(--color-text-secondary);
-            transition: color 0.2s;
+            transition: all 0.3s;
         }
 
         .nav-item.active {
@@ -548,51 +545,72 @@
         }
 
         .nav-icon {
-            font-size: 22px;
+            font-size: 24px;
+            font-weight: 300;
         }
 
         .nav-label {
-            font-size: 10px;
-            letter-spacing: 1px;
+            font-size: 9px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 400;
         }
 
         /* EMPTY STATE */
         .empty-state {
-            padding: 80px 32px;
+            padding: 100px 32px;
             text-align: center;
             color: var(--color-text-secondary);
         }
 
         .empty-state-icon {
-            font-size: 48px;
-            margin-bottom: 24px;
-            opacity: 0.5;
+            font-size: 56px;
+            margin-bottom: 28px;
+            opacity: 0.4;
+            font-weight: 300;
         }
 
         .empty-state-text {
             font-family: var(--font-serif);
-            font-size: 20px;
+            font-size: 24px;
             margin-bottom: 12px;
             color: var(--color-text);
+            font-weight: 300;
         }
 
         .empty-state-sub {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
         .social-links {
-            padding: 24px;
+            padding: 32px 28px;
         }
 
         .social-title {
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             text-align: center;
+            font-weight: 400;
+        }
+
+        /* LOADING */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -602,11 +620,11 @@
     <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="header">
-            <div class="logo">PANDADROP</div>
+            <div class="logo">Pandadrop</div>
         </div>
 
         <div class="hero">
-            <div class="hero-label">Wishlist from China</div>
+            <div class="hero-label">Buyer Service from China</div>
             <h1 class="hero-title">
                 Премиальный<br>
                 байер-сервис<br>
@@ -614,7 +632,7 @@
                 желаний
             </h1>
             <p class="hero-text">
-                1:1 копии люксовых брендов с 1688, Taobao, Poizon. 
+                1:1 копии люксовых брендов с WeChat, а также выкуп по ссылкам с 1688, Taobao, Poizon и др. 
                 Доставка по всей Беларуси.
             </p>
             <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
@@ -642,9 +660,9 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">Информация</h2>
+            <h2 class="section-title">Условия</h2>
             <div class="info-card">
-                <div class="info-card-title">Условия доставки</div>
+                <div class="info-card-title">Доставка</div>
                 <div class="info-row">
                     <span class="info-label">Стоимость</span>
                     <span class="info-value">23 BYN/кг</span>
@@ -658,7 +676,7 @@
                     <span class="info-value">150 CNY</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Доставка</span>
+                    <span class="info-label">Регион</span>
                     <span class="info-value">Вся Беларусь</span>
                 </div>
             </div>
@@ -675,7 +693,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label">Валюта</span>
-                    <span class="info-value">BYN / USD</span>
+                    <span class="info-value">BYN</span>
                 </div>
             </div>
         </div>
@@ -685,32 +703,46 @@
     <div id="catalog" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">КАТАЛОГ</div>
+            <div class="logo">Каталог</div>
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Выберите категорию</h2>
+        <div class="section" style="padding-top: 24px;">
             <div class="sub-category-grid">
                 <div class="sub-category-item" onclick="openSubCategory('shoes')">
-                    <div class="sub-category-icon">👟</div>
-                    <div class="sub-category-name">Обувь</div>
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1552346154-2c3f56e09c5f?w=600" alt="Shoes">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Обувь</div>
+                        <div class="sub-category-desc">Nike, Adidas, Jordan</div>
+                    </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('clothing')">
-                    <div class="sub-category-icon">👕</div>
-                    <div class="sub-category-name">Одежда</div>
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1551488852-0801751ac367?w=600" alt="Clothing">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Одежда</div>
+                        <div class="sub-category-desc">Moncler, Stone Island</div>
+                    </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('bags')">
-                    <div class="sub-category-icon">👜</div>
-                    <div class="sub-category-name">Сумки</div>
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Bags">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Сумки</div>
+                        <div class="sub-category-desc">LV, Gucci, Chanel</div>
+                    </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('watches')">
-                    <div class="sub-category-icon">⌚</div>
-                    <div class="sub-category-name">Часы</div>
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Watches">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Часы</div>
+                        <div class="sub-category-desc">Rolex, Patek Philippe</div>
+                    </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('accessories')">
-                    <div class="sub-category-icon">🕶️</div>
-                    <div class="sub-category-name">Аксессуары</div>
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600" alt="Accessories">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Аксессуары</div>
+                        <div class="sub-category-desc">Очки, ремни, кошельки</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -720,11 +752,11 @@
     <div id="brands" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('catalog')">←</div>
-            <div class="logo" id="brand-page-title">БРЕНДЫ</div>
+            <div class="logo" id="brand-page-title">Бренды</div>
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section">
+        <div class="section" style="padding-top: 24px;">
             <div class="brand-list" id="brands-list">
                 <!-- Brands will be loaded here -->
             </div>
@@ -735,17 +767,17 @@
     <div id="howto" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">КАК ЗАКАЗАТЬ</div>
+            <div class="logo">Как заказать</div>
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section">
+        <div class="section" style="padding-top: 24px;">
             <div class="menu-list">
                 <div class="menu-item">
                     <span class="menu-item-label">1. Выберите товар</span>
                 </div>
                 <div class="menu-item">
-                    <span class="menu-item-label">2. Отправьте ссылку или фото с параметрами</span>
+                    <span class="menu-item-label">2. Отправьте ссылку, фото с параметрами (цвет, размер, количество) </span>
                 </div>
                 <div class="menu-item">
                     <span class="menu-item-label">3. Мы рассчитаем стоимость</span>
@@ -761,11 +793,11 @@
                 </div>
             </div>
 
-            <div style="margin-top: 40px; padding: 32px; background: var(--color-surface); border: 1px solid var(--color-border);">
-                <div style="font-family: var(--font-serif); font-size: 20px; margin-bottom: 16px;">
+            <div style="margin-top: 48px; padding: 40px 32px; background: var(--color-surface); border: 0.5px solid var(--color-border);">
+                <div style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 16px; font-weight: 400;">
                     Нужна помощь?
                 </div>
-                <div style="color: var(--color-text-secondary); margin-bottom: 24px; font-size: 14px; line-height: 1.6;">
+                <div style="color: var(--color-text-secondary); margin-bottom: 28px; font-size: 14px; line-height: 1.8; font-weight: 300;">
                     Напишите нам в Telegram<br>
                     Мы поможем с выбором и расчетом
                 </div>
@@ -792,56 +824,54 @@
     <div id="cart" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">КОРЗИНА</div>
+            <div class="logo">Оформление</div>
             <div style="width: 40px;"></div>
         </div>
 
-        <div id="cart-content">
-            <div style="padding: 24px;">
-                <div class="form-group">
-                    <label class="form-label">Ваше имя</label>
-                    <input type="text" class="form-input" id="order-name" placeholder="Иван Иванов">
-                </div>
+        <div style="padding: 24px 28px;">
+            <div class="form-group">
+                <label class="form-label">Ваше имя *</label>
+                <input type="text" class="form-input" id="order-name" placeholder="Иван Иванов">
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">Телефон</label>
-                    <input type="tel" class="form-input" id="order-phone" placeholder="+375 (XX) XXX-XX-XX">
-                </div>
+            <div class="form-group">
+                <label class="form-label">Телефон *</label>
+                <input type="tel" class="form-input" id="order-phone" placeholder="+375 (XX) XXX-XX-XX">
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">Адрес доставки</label>
-                    <input type="text" class="form-input" id="order-address" placeholder="Город, улица, дом, квартира">
-                </div>
+            <div class="form-group">
+                <label class="form-label">Адрес доставки *</label>
+                <input type="text" class="form-input" id="order-address" placeholder="Город, улица, дом, квартира">
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">Ссылки на товары или описание</label>
-                    <textarea class="form-textarea" id="order-items" placeholder="Отправьте ссылки на товары с 1688, Taobao, Poizon или опишите что хотите заказать (бренд, модель, размер, цвет, количество)"></textarea>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Ссылки на товары или описание *</label>
+                <textarea class="form-textarea" id="order-items" placeholder="Отправьте ссылки на товары с 1688, Taobao, Poizon или опишите что хотите заказать (бренд, модель, размер, цвет, количество)"></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">Комментарий</label>
-                    <textarea class="form-textarea" id="order-comment" placeholder="Дополнительная информация (необязательно)" style="min-height: 80px;"></textarea>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Комментарий</label>
+                <textarea class="form-textarea" id="order-comment" placeholder="Дополнительная информация (необязательно)" style="min-height: 90px;"></textarea>
+            </div>
 
-                <div class="cart-summary">
-                    <div class="summary-row">
-                        <span>Стоимость товаров</span>
-                        <span id="cart-items-cost">0 BYN</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Доставка (23 BYN/кг)</span>
-                        <span>Рассчитывается отдельно</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Итого к оплате</span>
-                        <span id="cart-total">0 BYN</span>
-                    </div>
-                    <button class="btn btn-primary" onclick="submitOrder()" style="margin-top: 20px;">
-                        Отправить заказ
-                    </button>
-                    <div style="margin-top: 16px; font-size: 12px; color: var(--color-text-secondary); text-align: center;">
-                        Менеджер свяжется с вами в течение часа
-                    </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Стоимость товаров</span>
+                    <span id="cart-items-cost">0 BYN</span>
+                </div>
+                <div class="summary-row">
+                    <span>Доставка</span>
+                    <span>23 BYN/кг</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Итого к оплате</span>
+                    <span id="cart-total">0 BYN</span>
+                </div>
+                <button class="btn btn-primary" onclick="submitOrder()" style="margin-top: 24px; width: 100%;">
+                    Отправить заказ
+                </button>
+                <div style="margin-top: 20px; font-size: 12px; color: var(--color-text-secondary); text-align: center; font-weight: 300;">
+                    Менеджер свяжется с вами<br>в течение часа
                 </div>
             </div>
         </div>
@@ -876,7 +906,7 @@
 
         <div class="social-links">
             <div class="social-title">Контакты</div>
-            <div style="text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 1.8;">
+            <div style="text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 2; font-weight: 300;">
                 📍 Вся Беларусь<br>
                 ⏰ Работаем ежедневно<br>
                 💬 Ответ в течение часа
@@ -929,61 +959,61 @@
         shoes: {
             title: 'Обувь',
             items: [
-                { name: 'Nike / Jordan', desc: 'Кроссовки, кеды' },
-                { name: 'Adidas / Yeezy', desc: 'Спортивная обувь' },
-                { name: 'New Balance', desc: 'Классика и спорт' },
-                { name: 'Loro Piana', desc: 'Люксовая обувь' },
-                { name: 'Common Projects', desc: 'Минимализм' },
-                { name: 'Golden Goose', desc: 'Премиум кеды' },
-                { name: 'Balenciaga', desc: 'Дизайнерская обувь' }
+                { name: 'Nike / Jordan', desc: 'Travis Scott, Off-White, Dior' },
+                { name: 'Adidas / Yeezy', desc: 'Boost 350, 500, 700' },
+                { name: 'New Balance', desc: '550, 530, 2002R, 990' },
+                { name: 'Loro Piana', desc: 'Summer Walk, Open Walk' },
+                { name: 'Common Projects', desc: 'Achilles Low, Original' },
+                { name: 'Golden Goose', desc: 'Super Star, Mid Star' },
+                { name: 'Balenciaga', desc: 'Triple S, Track, Speed' }
             ]
         },
         clothing: {
             title: 'Одежда',
             items: [
-                { name: 'Moncler', desc: 'Пуховики, куртки' },
-                { name: 'Canada Goose', desc: 'Верхняя одежда' },
-                { name: 'Stone Island', desc: 'Техническая одежда' },
-                { name: 'CP Company', desc: 'Уличная мода' },
-                { name: 'Balenciaga', desc: 'Дизайнерская одежда' },
-                { name: 'Off-White', desc: 'Streetwear' },
-                { name: 'Essentials FOG', desc: 'Базовая одежда' }
+                { name: 'Moncler', desc: 'Пуховики, куртки, жилеты' },
+                { name: 'Canada Goose', desc: 'Expedition, Chateau, Langford' },
+                { name: 'Stone Island', desc: 'Куртки, пуховики, софтшелл' },
+                { name: 'CP Company', desc: 'Goggle Jacket, уличная одежда' },
+                { name: 'Balenciaga', desc: 'Оверсайз, худи, футболки' },
+                { name: 'Off-White', desc: 'Streetwear, худи, футболки' },
+                { name: 'Essentials FOG', desc: 'Базовая одежда, худи, штаны' }
             ]
         },
         bags: {
             title: 'Сумки',
             items: [
-                { name: 'Louis Vuitton', desc: 'Люкс сумки' },
-                { name: 'Gucci', desc: 'Итальянский люкс' },
-                { name: 'Chanel', desc: 'Классика' },
-                { name: 'Dior', desc: 'Французский шик' },
-                { name: 'Hermès', desc: 'Премиум качество' },
-                { name: 'Prada', desc: 'Итальянский стиль' },
-                { name: 'Saint Laurent', desc: 'Люкс аксессуары' }
+                { name: 'Louis Vuitton', desc: 'Neverfull, Speedy, Onthego' },
+                { name: 'Gucci', desc: 'Marmont, Dionysus, Jackie' },
+                { name: 'Chanel', desc: 'Classic Flap, Boy, 22' },
+                { name: 'Dior', desc: 'Lady Dior, Saddle, Book Tote' },
+                { name: 'Hermès', desc: 'Birkin, Kelly, Constance' },
+                { name: 'Prada', desc: 'Galleria, Cahier, Re-Edition' },
+                { name: 'Saint Laurent', desc: 'LouLou, Kate, Sac de Jour' }
             ]
         },
         watches: {
             title: 'Часы',
             items: [
-                { name: 'Rolex', desc: 'Легендарные часы' },
-                { name: 'Patek Philippe', desc: 'Высший класс' },
-                { name: 'Audemars Piguet', desc: 'Швейцарское качество' },
-                { name: 'Omega', desc: 'Премиум часы' },
-                { name: 'Cartier', desc: 'Люкс и стиль' },
-                { name: 'Richard Mille', desc: 'Современный люкс' },
-                { name: 'Hublot', desc: 'Смелый дизайн' }
+                { name: 'Rolex', desc: 'Submariner, Datejust, Daytona' },
+                { name: 'Patek Philippe', desc: 'Nautilus, Aquanaut, Calatrava' },
+                { name: 'Audemars Piguet', desc: 'Royal Oak, Offshore' },
+                { name: 'Omega', desc: 'Seamaster, Speedmaster, Constellation' },
+                { name: 'Cartier', desc: 'Santos, Ballon Bleu, Tank' },
+                { name: 'Richard Mille', desc: 'RM 011, RM 35, RM 67' },
+                { name: 'Hublot', desc: 'Big Bang, Classic Fusion' }
             ]
         },
         accessories: {
             title: 'Аксессуары',
             items: [
-                { name: 'Ray-Ban', desc: 'Солнцезащитные очки' },
-                { name: 'Gucci', desc: 'Аксессуары' },
-                { name: 'Versace', desc: 'Итальянский стиль' },
-                { name: 'Dior', desc: 'Люкс аксессуары' },
-                { name: 'Louis Vuitton', desc: 'Кошельки, ремни' },
-                { name: 'Prada', desc: 'Аксессуары' },
-                { name: 'Burberry', desc: 'Шарфы, зонты' }
+                { name: 'Ray-Ban', desc: 'Aviator, Wayfarer, Clubmaster' },
+                { name: 'Gucci', desc: 'Очки, ремни, кошельки' },
+                { name: 'Versace', desc: 'Очки, ремни, аксессуары' },
+                { name: 'Dior', desc: 'Очки, шарфы, кошельки' },
+                { name: 'Louis Vuitton', desc: 'Кошельки, ремни, ключницы' },
+                { name: 'Prada', desc: 'Очки, ремни, аксессуары' },
+                { name: 'Burberry', desc: 'Шарфы, зонты, очки' }
             ]
         }
     };
@@ -1022,16 +1052,16 @@
     function openSubCategory(category) {
         currentSubCategory = category;
         const data = brands[category];
-        document.getElementById('brand-page-title').textContent = data.title.toUpperCase();
+        document.getElementById('brand-page-title').textContent = data.title;
         
         const list = document.getElementById('brands-list');
         list.innerHTML = data.items.map(brand => `
             <div class="brand-item" onclick="selectBrand('${brand.name}')">
                 <div>
-                    <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 400;">${brand.name}</div>
-                    <div style="font-size: 13px; color: var(--color-text-secondary); margin-top: 4px;">${brand.desc}</div>
+                    <div class="brand-name">${brand.name}</div>
+                    <div class="brand-desc">${brand.desc}</div>
                 </div>
-                <div style="color: var(--color-text-secondary);">→</div>
+                <div style="color: var(--color-text-secondary); font-size: 22px;">→</div>
             </div>
         `).join('');
         
