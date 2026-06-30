@@ -91,11 +91,27 @@
             color: var(--color-text);
         }
 
-        /* HERO - BOLD STYLE */
+        /* HERO - PANDA STYLE */
         .hero {
-            padding: 40px 24px 50px;
+            padding: 0;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 32px;
+            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.3));
         }
 
         .hero-label {
@@ -104,7 +120,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .hero-title {
@@ -113,7 +129,7 @@
             font-weight: 900;
             line-height: 1.05;
             color: var(--color-text);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: -1px;
         }
 
@@ -127,20 +143,8 @@
             font-size: 15px;
             color: var(--color-text-secondary);
             line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             max-width: 90%;
-        }
-
-        .hero-image-side {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 140px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 20px 0 0 20px;
-            opacity: 0.9;
         }
 
         .btn {
@@ -204,7 +208,7 @@
 
         /* SECTIONS */
         .section {
-            padding: 0 24px 40px;
+            padding: 40px 24px;
         }
 
         .section-title {
@@ -286,7 +290,7 @@
             border: 1px solid var(--color-border);
         }
 
-        /* SUB CATEGORIES */
+        /* SUB CATEGORIES - 6 ITEMS */
         .sub-category-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -308,13 +312,13 @@
 
         .sub-category-image {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
             display: block;
         }
 
         .sub-category-info {
-            padding: 16px;
+            padding: 18px 16px;
         }
 
         .sub-category-name {
@@ -619,25 +623,28 @@
         </div>
 
         <div class="hero">
-            <div class="hero-label">Buyer Anastasia | China</div>
-            <h1 class="hero-title">
-                Премиальный<br>
-                байер-сервис<br>
-                <em>для ваших</em><br>
-                wishlist-позиций
-            </h1>
-            <p class="hero-text">
-                Находим желанные модели, подбираем лучшее качество, 
-                проверяем каждую деталь и сопровождаем заказ до получения.
-            </p>
-            <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
-            <br>
-            <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
+            <img class="hero-image-main" src="https://images.unsplash.com/photo-1564349653896-2ea8c5f9c8a1?w=800" alt="Panda Luxury">
+            <div class="hero-overlay">
+                <div class="hero-label">BUYER ANASTASIA | China</div>
+                <h1 class="hero-title">
+                    Премиальный<br>
+                    байер-сервис<br>
+                    <em>для ваших</em><br>
+                    wishlist-позиций
+                </h1>
+                <p class="hero-text">
+                    Находим желанные модели, подбираем лучшее качество, 
+                    проверяем каждую деталь и сопровождаем заказ до получения.
+                </p>
+                <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
+                <br>
+                <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
 
-            <div class="tags-row">
-                <div class="tag">🎬 Видео</div>
-                <div class="tag">🔍 Поиск по референсу</div>
-                <div class="tag">💬 Консультация</div>
+                <div class="tags-row">
+                    <div class="tag">🎬 Видео</div>
+                    <div class="tag">🔍 Поиск по референсу</div>
+                    <div class="tag">💬 Консультация</div>
+                </div>
             </div>
         </div>
 
@@ -701,7 +708,7 @@
         </div>
     </div>
 
-    <!-- CATALOG PAGE -->
+    <!-- CATALOG PAGE - 6 CATEGORIES -->
     <div id="catalog" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
@@ -709,7 +716,7 @@
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section" style="padding-top: 24px;">
+        <div class="section">
             <h2 class="section-title">Выберите категорию</h2>
             <div class="sub-category-grid">
                 <div class="sub-category-item" onclick="openSubCategory('shoes')">
@@ -741,9 +748,16 @@
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('accessories')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Accessories">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600" alt="Jewelry">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Аксессуары</div>
+                        <div class="sub-category-desc">Украшения, кольца</div>
+                    </div>
+                </div>
+                <div class="sub-category-item" onclick="openSubCategory('glasses')">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Glasses">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Очки</div>
                         <div class="sub-category-desc">Cartier, Ray-Ban</div>
                     </div>
                 </div>
@@ -759,7 +773,7 @@
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section" style="padding-top: 24px;">
+        <div class="section">
             <div class="brand-list" id="brands-list">
                 <!-- Brands will be loaded here -->
             </div>
@@ -774,13 +788,13 @@
             <div style="width: 40px;"></div>
         </div>
 
-        <div class="section" style="padding-top: 24px;">
+        <div class="section">
             <div class="menu-list">
                 <div class="menu-item">
                     <span class="menu-item-label">1. Выберите товар</span>
                 </div>
                 <div class="menu-item">
-                    <span class="menu-item-label">2. Отправьте ссылку или фото с параметрами</span>
+                    <span class="menu-item-label">2. Отправьте ссылку и фото с параметрами (цвет, размер, количество)</span>
                 </div>
                 <div class="menu-item">
                     <span class="menu-item-label">3. Мы рассчитаем стоимость</span>
@@ -792,7 +806,7 @@
                     <span class="menu-item-label">5. Мы выкупаем товар</span>
                 </div>
                 <div class="menu-item">
-                    <span class="menu-item-label">6. Доставляем вам (16-21 день)</span>
+                    <span class="menu-item-label">6. Доставляем вам (16-21 день с момента отправки из Китая)</span>
                 </div>
             </div>
 
@@ -853,7 +867,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label">Ссылки на товары и описание <span class="required">*</span></label>
+                <label class="form-label">Ссылки на товары или описание <span class="required">*</span></label>
                 <textarea class="form-textarea" id="order-items" placeholder="Отправьте ссылки на товары с 1688, Taobao, Poizon или опишите что хотите заказать (бренд, модель, размер, цвет, количество)"></textarea>
             </div>
 
@@ -863,17 +877,14 @@
             </div>
 
             <div class="cart-summary">
-                <div class="summary-row">
-                    <span>Стоимость товаров</span>
-                    <span id="cart-items-cost">0 BYN</span>
-                </div>
-                <div class="summary-row">
-                    <span>Доставка</span>
-                    <span>23 BYN/кг</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Итого к оплате</span>
-                    <span id="cart-total">0 BYN</span>
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                        Стоимость рассчитает менеджер
+                    </div>
+                    <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                        Мы пришлём точный расчёт в течение часа<br>
+                        Доставка: 23 BYN/кг • Срок: 16-21 день
+                    </div>
                 </div>
                 <button class="btn btn-primary" onclick="submitOrder()" style="margin-top: 24px; width: 100%;">
                     Отправить заказ
@@ -888,7 +899,7 @@
     <!-- PROFILE PAGE -->
     <div id="profile" class="page">
         <div class="profile-header">
-            <div class="profile-avatar">👤</div>
+            <div class="profile-avatar">🐼</div>
             <div class="profile-name" id="profile-name">Гость</div>
             <div class="profile-username" id="profile-username">войдите для доступа</div>
         </div>
@@ -915,7 +926,7 @@
         <div class="social-links">
             <div class="social-title">Контакты</div>
             <div style="text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 2;">
-                 Вся Беларусь<br>
+                📍 Вся Беларусь<br>
                 ⏰ Работаем ежедневно<br>
                 💬 Ответ в течение часа
             </div>
@@ -934,7 +945,7 @@
         <div class="nav-label">Каталог</div>
     </div>
     <div class="nav-item" onclick="navigateTo('cart')" data-page="cart">
-        <div class="nav-icon"></div>
+        <div class="nav-icon">◉</div>
         <div class="nav-label">Заказать</div>
     </div>
     <div class="nav-item" onclick="navigateTo('profile')" data-page="profile">
@@ -1011,13 +1022,24 @@
         accessories: {
             title: 'АКСЕССУАРЫ',
             items: [
-                { name: 'Cartier', desc: 'Очки, браслеты, кольца' },
+                { name: 'Cartier', desc: 'Кольца, серьги, ожерелья' },
+                { name: 'Van Cleef & Arpels', desc: 'Браслеты, колье' },
+                { name: 'Tiffany & Co', desc: 'Украшения с бриллиантами' },
+                { name: 'Bulgari', desc: 'Золотые украшения' },
+                { name: 'Chopard', desc: 'Премиум украшения' },
+                { name: 'Graff', desc: 'Элитные украшения' }
+            ]
+        },
+        glasses: {
+            title: 'ОЧКИ',
+            items: [
+                { name: 'Cartier', desc: 'Luxury sunglasses' },
                 { name: 'Ray-Ban', desc: 'Aviator, Wayfarer, Clubmaster' },
-                { name: 'Gucci', desc: 'Очки, ремни, кошельки' },
-                { name: 'Versace', desc: 'Очки, ремни, аксессуары' },
-                { name: 'Dior', desc: 'Очки, шарфы, кошельки' },
-                { name: 'Louis Vuitton', desc: 'Кошельки, ремни, ключницы' },
-                { name: 'Prada', desc: 'Очки, ремни, аксессуары' }
+                { name: 'Gucci', desc: 'Designer sunglasses' },
+                { name: 'Dior', desc: 'Luxury eyewear' },
+                { name: 'Prada', desc: 'Designer glasses' },
+                { name: 'Versace', desc: 'Italian sunglasses' },
+                { name: 'Tom Ford', desc: 'Premium eyewear' }
             ]
         }
     };
@@ -1135,7 +1157,7 @@
                 document.getElementById('order-comment').value = '';
                 navigateTo('home');
             } else {
-                tg?.showAlert(' Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с менеджером напрямую.');
+                tg?.showAlert('❌ Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с менеджером напрямую.');
             }
         } catch (error) {
             tg?.showAlert('❌ Ошибка соединения. Проверьте интернет и попробуйте снова.');
