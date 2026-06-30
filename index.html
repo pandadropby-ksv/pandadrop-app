@@ -92,28 +92,50 @@
             font-weight: 300;
         }
 
-        /* HERO */
+        /* HERO - PREMIUM STYLE */
         .hero {
-            padding: 100px 32px 60px;
-            text-align: center;
             position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 32px;
+            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.3));
         }
 
         .hero-label {
             font-size: 10px;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-weight: 400;
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 300;
             line-height: 1.1;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -1px;
         }
 
@@ -123,11 +145,10 @@
         }
 
         .hero-text {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--color-text-secondary);
-            line-height: 1.8;
-            max-width: 340px;
-            margin: 0 auto 40px;
+            line-height: 1.7;
+            margin-bottom: 24px;
             font-weight: 300;
         }
 
@@ -160,7 +181,7 @@
             background: transparent;
             color: var(--color-text);
             border: 0.5px solid var(--color-border);
-            margin-top: 16px;
+            margin-top: 12px;
         }
 
         .btn-secondary:hover {
@@ -387,6 +408,10 @@
             color: var(--color-text-secondary);
             margin-bottom: 10px;
             font-weight: 400;
+        }
+
+        .form-label .required {
+            color: #dc2626;
         }
 
         .form-input,
@@ -624,19 +649,24 @@
         </div>
 
         <div class="hero">
-            <div class="hero-label">Buyer Service from China</div>
-            <h1 class="hero-title">
-                Премиальный<br>
-                байер-сервис<br>
-                <em>для ваших</em><br>
-                желаний
-            </h1>
-            <p class="hero-text">
-                1:1 копии люксовых брендов с WeChat, а также выкуп по ссылкам с 1688, Taobao, Poizon и др. 
-                Доставка по всей Беларуси.
-            </p>
-            <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
-            <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
+            <div class="hero-image-container">
+                <img class="hero-image" src="https://images.unsplash.com/photo-15581718134c8-0c2f2a2f5c3e?w=800" alt="Luxury Shopping">
+                <div class="hero-overlay">
+                    <div class="hero-label">Buyer Service from China</div>
+                    <h1 class="hero-title">
+                        Премиальный<br>
+                        байер-сервис<br>
+                        <em>для ваших</em><br>
+                        желаний
+                    </h1>
+                    <p class="hero-text">
+                        1:1 копии люксовых брендов с 1688, Taobao, Poizon. 
+                        Доставка по всей Беларуси.
+                    </p>
+                    <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
+                    <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
+                </div>
+            </div>
         </div>
 
         <div class="section">
@@ -693,7 +723,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label">Валюта</span>
-                    <span class="info-value">BYN</span>
+                    <span class="info-value">BYN / USD</span>
                 </div>
             </div>
         </div>
@@ -710,38 +740,38 @@
         <div class="section" style="padding-top: 24px;">
             <div class="sub-category-grid">
                 <div class="sub-category-item" onclick="openSubCategory('shoes')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1552346154-2c3f56e09c5f?w=600" alt="Shoes">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600" alt="Nike Shoes">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Обувь</div>
-                        <div class="sub-category-desc">Nike, Adidas, Jordan</div>
-                    </div>
-                </div>
-                <div class="sub-category-item" onclick="openSubCategory('clothing')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1551488852-0801751ac367?w=600" alt="Clothing">
-                    <div class="sub-category-info">
-                        <div class="sub-category-name">Одежда</div>
-                        <div class="sub-category-desc">Moncler, Stone Island</div>
+                        <div class="sub-category-desc">Nike, Jordan, Adidas</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('bags')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Bags">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="LV Bag">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Сумки</div>
-                        <div class="sub-category-desc">LV, Gucci, Chanel</div>
+                        <div class="sub-category-desc">Louis Vuitton, Gucci</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('watches')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Watches">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Rolex Watch">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Часы</div>
                         <div class="sub-category-desc">Rolex, Patek Philippe</div>
                     </div>
                 </div>
+                <div class="sub-category-item" onclick="openSubCategory('clothing')">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1551488852-0801751ac367?w=600" alt="Luxury Clothing">
+                    <div class="sub-category-info">
+                        <div class="sub-category-name">Одежда</div>
+                        <div class="sub-category-desc">Moncler, Stone Island</div>
+                    </div>
+                </div>
                 <div class="sub-category-item" onclick="openSubCategory('accessories')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600" alt="Accessories">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Cartier Sunglasses">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Аксессуары</div>
-                        <div class="sub-category-desc">Очки, ремни, кошельки</div>
+                        <div class="sub-category-desc">Cartier, Ray-Ban</div>
                     </div>
                 </div>
             </div>
@@ -777,7 +807,7 @@
                     <span class="menu-item-label">1. Выберите товар</span>
                 </div>
                 <div class="menu-item">
-                    <span class="menu-item-label">2. Отправьте ссылку, фото с параметрами (цвет, размер, количество) </span>
+                    <span class="menu-item-label">2. Отправьте ссылку или фото с параметрами</span>
                 </div>
                 <div class="menu-item">
                     <span class="menu-item-label">3. Мы рассчитаем стоимость</span>
@@ -830,22 +860,27 @@
 
         <div style="padding: 24px 28px;">
             <div class="form-group">
-                <label class="form-label">Ваше имя *</label>
+                <label class="form-label">Ваше имя <span class="required">*</span></label>
                 <input type="text" class="form-input" id="order-name" placeholder="Иван Иванов">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Телефон *</label>
+                <label class="form-label">Телефон <span class="required">*</span></label>
                 <input type="tel" class="form-input" id="order-phone" placeholder="+375 (XX) XXX-XX-XX">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Адрес доставки *</label>
+                <label class="form-label">Instagram или Telegram <span class="required">*</span></label>
+                <input type="text" class="form-input" id="order-social" placeholder="@username или ссылка на Instagram">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Адрес доставки <span class="required">*</span></label>
                 <input type="text" class="form-input" id="order-address" placeholder="Город, улица, дом, квартира">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Ссылки на товары или описание *</label>
+                <label class="form-label">Ссылки на товары или описание <span class="required">*</span></label>
                 <textarea class="form-textarea" id="order-items" placeholder="Отправьте ссылки на товары с 1688, Taobao, Poizon или опишите что хотите заказать (бренд, модель, размер, цвет, количество)"></textarea>
             </div>
 
@@ -1007,13 +1042,13 @@
         accessories: {
             title: 'Аксессуары',
             items: [
+                { name: 'Cartier', desc: 'Очки, браслеты, кольца' },
                 { name: 'Ray-Ban', desc: 'Aviator, Wayfarer, Clubmaster' },
                 { name: 'Gucci', desc: 'Очки, ремни, кошельки' },
                 { name: 'Versace', desc: 'Очки, ремни, аксессуары' },
                 { name: 'Dior', desc: 'Очки, шарфы, кошельки' },
                 { name: 'Louis Vuitton', desc: 'Кошельки, ремни, ключницы' },
-                { name: 'Prada', desc: 'Очки, ремни, аксессуары' },
-                { name: 'Burberry', desc: 'Шарфы, зонты, очки' }
+                { name: 'Prada', desc: 'Очки, ремни, аксессуары' }
             ]
         }
     };
@@ -1087,18 +1122,20 @@
     async function submitOrder() {
         const name = document.getElementById('order-name').value.trim();
         const phone = document.getElementById('order-phone').value.trim();
+        const social = document.getElementById('order-social').value.trim();
         const address = document.getElementById('order-address').value.trim();
         const items = document.getElementById('order-items').value.trim();
         const comment = document.getElementById('order-comment').value.trim();
 
-        if (!name || !phone || !items) {
-            tg?.showAlert('Пожалуйста, заполните обязательные поля: имя, телефон и ссылки/описание товаров');
+        if (!name || !phone || !social || !items) {
+            tg?.showAlert('Пожалуйста, заполните все обязательные поля:\n• Имя\n• Телефон\n• Instagram/Telegram\n• Ссылки/описание товаров');
             return;
         }
 
         const message = `🛍 <b>НОВЫЙ ЗАКАЗ</b>\n\n` +
             `👤 <b>Имя:</b> ${name}\n` +
             `📱 <b>Телефон:</b> ${phone}\n` +
+            `🔗 <b>Соцсеть:</b> ${social}\n` +
             `📍 <b>Адрес:</b> ${address}\n\n` +
             `📦 <b>Товары:</b>\n${items}\n\n` +
             (comment ? `💬 <b>Комментарий:</b>\n${comment}\n\n` : '') +
@@ -1124,6 +1161,7 @@
                 tg?.showAlert('✅ Заказ успешно отправлен!\n\nМенеджер свяжется с вами в течение часа для подтверждения.');
                 document.getElementById('order-name').value = '';
                 document.getElementById('order-phone').value = '';
+                document.getElementById('order-social').value = '';
                 document.getElementById('order-address').value = '';
                 document.getElementById('order-items').value = '';
                 document.getElementById('order-comment').value = '';
