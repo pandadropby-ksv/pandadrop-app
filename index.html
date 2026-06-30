@@ -7,16 +7,17 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg: #ffffff;
-            --color-surface: #fafafa;
-            --color-text: #000000;
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
             --color-text-secondary: #6e6e73;
-            --color-border: #d4d4d8;
-            --color-accent: #000000;
-            --font-serif: 'Cormorant Garamond', serif;
+            --color-border: #e4e4e7;
+            --color-accent: #6b0f1a;
+            --color-accent-light: #8b1a2a;
+            --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
         }
 
@@ -31,7 +32,7 @@
             background: var(--color-bg);
             color: var(--color-text);
             font-family: var(--font-sans);
-            font-weight: 300;
+            font-weight: 400;
             font-size: 15px;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -46,7 +47,7 @@
 
         .page {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
 
         .page.active {
@@ -54,118 +55,107 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* HEADER */
         .header {
-            padding: 24px 28px;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 10;
-            border-bottom: 0.5px solid var(--color-border);
         }
 
         .logo {
             font-family: var(--font-serif);
             font-size: 22px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--color-accent);
         }
 
         .header-back {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--color-text);
-            font-weight: 300;
         }
 
-        /* HERO - PREMIUM STYLE */
+        /* HERO - BOLD STYLE */
         .hero {
+            padding: 40px 24px 50px;
             position: relative;
-            padding: 0;
             overflow: hidden;
-        }
-
-        .hero-image-container {
-            position: relative;
-            width: 100%;
-            height: 520px;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px 32px;
-            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.3));
         }
 
         .hero-label {
-            font-size: 10px;
-            letter-spacing: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 16px;
-            font-weight: 400;
+            margin-bottom: 20px;
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 42px;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 16px;
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--color-text);
+            margin-bottom: 20px;
             letter-spacing: -1px;
         }
 
         .hero-title em {
             font-style: italic;
             font-weight: 400;
+            color: var(--color-accent);
         }
 
         .hero-text {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--color-text-secondary);
-            line-height: 1.7;
-            margin-bottom: 24px;
-            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-image-side {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 140px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px 0 0 20px;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 48px;
-            border-radius: 0;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 400;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             border: none;
             text-decoration: none;
             width: 100%;
-            max-width: 300px;
+            max-width: 260px;
+            text-align: center;
         }
 
         .btn-primary {
@@ -174,13 +164,14 @@
         }
 
         .btn-primary:hover {
-            opacity: 0.85;
+            background: var(--color-accent-light);
+            transform: scale(0.98);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--color-text);
-            border: 0.5px solid var(--color-border);
+            border: 1.5px solid var(--color-border);
             margin-top: 12px;
         }
 
@@ -192,43 +183,44 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 12px;
             background: var(--color-surface);
             color: var(--color-text);
-            border: 0.5px solid var(--color-border);
+            border: 1px solid var(--color-border);
             padding: 16px 24px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
             text-decoration: none;
-            transition: all 0.3s;
-            letter-spacing: 1px;
+            transition: all 0.2s;
+            border-radius: 50px;
+            font-weight: 500;
         }
 
         .btn-social:active {
             background: var(--color-bg);
-            transform: translateY(-1px);
+            transform: scale(0.98);
         }
 
         /* SECTIONS */
         .section {
-            padding: 0 24px 48px;
+            padding: 0 24px 40px;
         }
 
         .section-title {
             font-family: var(--font-serif);
             font-size: 28px;
-            font-weight: 300;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
-            border-bottom: 0.5px solid var(--color-border);
+            font-weight: 900;
+            margin-bottom: 24px;
             letter-spacing: -0.5px;
         }
 
         /* CATEGORIES */
         .category-main {
             background: var(--color-surface);
-            margin-bottom: 1px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .category-main-item {
@@ -237,12 +229,12 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 0.5px solid var(--color-border);
-            transition: all 0.3s;
+            border-bottom: 1px solid var(--color-border);
+            transition: all 0.2s;
         }
 
         .category-main-item:active {
-            background: #f0f0f0;
+            background: #f5f5f7;
         }
 
         .category-main-item:last-child {
@@ -250,94 +242,114 @@
         }
 
         .category-main-label {
-            font-size: 10px;
-            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 8px;
-            font-weight: 400;
+            margin-bottom: 6px;
         }
 
         .category-main-name {
             font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: -0.5px;
+            font-size: 26px;
+            font-weight: 700;
         }
 
         .category-main-arrow {
-            color: var(--color-text-secondary);
+            color: var(--color-accent);
             font-size: 24px;
-            font-weight: 300;
+            font-weight: 700;
         }
 
-        /* SUB CATEGORIES WITH PHOTOS */
+        /* TAGS ROW */
+        .tags-row {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .tags-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tag {
+            background: var(--color-surface);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        /* SUB CATEGORIES */
         .sub-category-grid {
             display: grid;
-            gap: 1px;
-            background: var(--color-border);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
         .sub-category-item {
             background: var(--color-surface);
-            position: relative;
-            cursor: pointer;
+            border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 3/4;
-            transition: all 0.4s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
         .sub-category-item:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
         }
 
         .sub-category-image {
             width: 100%;
-            height: 70%;
+            height: 160px;
             object-fit: cover;
             display: block;
         }
 
         .sub-category-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 24px 20px 20px;
-            background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.7));
+            padding: 16px;
         }
 
         .sub-category-name {
             font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 4px;
-            letter-spacing: -0.3px;
         }
 
         .sub-category-desc {
             font-size: 12px;
             color: var(--color-text-secondary);
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* BRANDS */
         .brand-list {
             background: var(--color-surface);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .brand-item {
-            padding: 24px 28px;
+            padding: 22px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 0.5px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
             transition: all 0.2s;
         }
 
         .brand-item:active {
-            background: #f0f0f0;
+            background: #f5f5f7;
         }
 
         .brand-item:last-child {
@@ -346,8 +358,8 @@
 
         .brand-name {
             font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 4px;
         }
 
@@ -359,24 +371,24 @@
         /* INFO CARDS */
         .info-card {
             background: var(--color-surface);
-            padding: 32px 28px;
-            margin-bottom: 20px;
-            border: 0.5px solid var(--color-border);
+            padding: 28px 24px;
+            margin-bottom: 16px;
+            border-radius: 24px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .info-card-title {
             font-family: var(--font-serif);
             font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 24px;
-            letter-spacing: -0.3px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 0.5px solid var(--color-border);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border);
         }
 
         .info-row:last-child {
@@ -385,74 +397,74 @@
 
         .info-label {
             color: var(--color-text-secondary);
-            font-weight: 300;
+            font-weight: 400;
             font-size: 14px;
         }
 
         .info-value {
-            font-weight: 400;
+            font-weight: 600;
             text-align: right;
             font-size: 14px;
         }
 
         /* ORDER FORM */
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .form-label {
             display: block;
-            font-size: 11px;
-            letter-spacing: 2.5px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 10px;
-            font-weight: 400;
+            margin-bottom: 8px;
         }
 
         .form-label .required {
-            color: #dc2626;
+            color: var(--color-accent);
         }
 
         .form-input,
         .form-textarea {
             width: 100%;
             padding: 16px 18px;
-            border: 0.5px solid var(--color-border);
+            border: 1.5px solid var(--color-border);
             background: var(--color-surface);
             font-size: 15px;
             font-family: var(--font-sans);
             transition: all 0.3s;
-            font-weight: 300;
+            border-radius: 16px;
+            font-weight: 400;
         }
 
         .form-input:focus,
         .form-textarea:focus {
             outline: none;
-            border-color: var(--color-text);
-            background: #fff;
+            border-color: var(--color-accent);
         }
 
         .form-textarea {
-            min-height: 140px;
+            min-height: 120px;
             resize: vertical;
         }
 
-        /* CART */
         .cart-summary {
             background: var(--color-surface);
-            padding: 32px 28px;
-            margin-top: 32px;
-            border: 0.5px solid var(--color-border);
+            padding: 28px 24px;
+            margin-top: 28px;
+            border-radius: 24px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-size: 14px;
-            padding-bottom: 16px;
-            border-bottom: 0.5px solid var(--color-border);
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--color-border);
         }
 
         .summary-row:last-child {
@@ -461,65 +473,67 @@
 
         .summary-row.total {
             font-size: 20px;
-            font-weight: 400;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--color-border);
+            font-weight: 700;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 2px solid var(--color-border);
             font-family: var(--font-serif);
         }
 
         /* PROFILE */
         .profile-header {
-            padding: 80px 32px 40px;
+            padding: 60px 32px 32px;
             text-align: center;
             background: var(--color-surface);
-            border-bottom: 0.5px solid var(--color-border);
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .profile-avatar {
-            width: 88px;
-            height: 88px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: var(--color-bg);
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
-            border: 0.5px solid var(--color-border);
+            font-size: 36px;
+            border: 2px solid var(--color-accent);
         }
 
         .profile-name {
             font-family: var(--font-serif);
-            font-size: 28px;
-            font-weight: 300;
+            font-size: 24px;
+            font-weight: 700;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
         }
 
         .profile-username {
             color: var(--color-text-secondary);
-            font-size: 13px;
-            font-weight: 300;
+            font-size: 14px;
         }
 
         .menu-list {
             background: var(--color-surface);
-            margin-top: 1px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
         }
 
         .menu-item {
-            padding: 22px 28px;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-bottom: 0.5px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
             transition: all 0.2s;
         }
 
         .menu-item:active {
-            background: #f0f0f0;
+            background: #f5f5f7;
         }
 
         .menu-item:last-child {
@@ -528,13 +542,13 @@
 
         .menu-item-label {
             font-size: 15px;
-            font-weight: 300;
+            font-weight: 500;
         }
 
         .menu-item-arrow {
-            color: var(--color-text-secondary);
+            color: var(--color-accent);
             font-size: 20px;
-            font-weight: 300;
+            font-weight: 700;
         }
 
         /* BOTTOM NAV */
@@ -546,11 +560,11 @@
             width: 100%;
             max-width: 480px;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-top: 0.5px solid var(--color-border);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--color-border);
             display: flex;
             justify-content: space-around;
-            padding: 16px 0;
+            padding: 12px 0;
             z-index: 100;
         }
 
@@ -559,83 +573,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             cursor: pointer;
             color: var(--color-text-secondary);
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .nav-item.active {
-            color: var(--color-text);
+            color: var(--color-accent);
         }
 
         .nav-icon {
-            font-size: 24px;
-            font-weight: 300;
+            font-size: 22px;
         }
 
         .nav-label {
-            font-size: 9px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 400;
-        }
-
-        /* EMPTY STATE */
-        .empty-state {
-            padding: 100px 32px;
-            text-align: center;
-            color: var(--color-text-secondary);
-        }
-
-        .empty-state-icon {
-            font-size: 56px;
-            margin-bottom: 28px;
-            opacity: 0.4;
-            font-weight: 300;
-        }
-
-        .empty-state-text {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--color-text);
-            font-weight: 300;
-        }
-
-        .empty-state-sub {
-            font-size: 14px;
-            line-height: 1.7;
-            font-weight: 300;
         }
 
         .social-links {
-            padding: 32px 28px;
+            padding: 24px;
         }
 
         .social-title {
-            font-size: 10px;
-            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--color-text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: center;
-            font-weight: 400;
-        }
-
-        /* LOADING */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -645,27 +615,29 @@
     <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="header">
-            <div class="logo">Pandadrop</div>
+            <div class="logo">PANDADROP</div>
         </div>
 
         <div class="hero">
-            <div class="hero-image-container">
-                <img class="hero-image" src="https://images.unsplash.com/photo-15581718134c8-0c2f2a2f5c3e?w=800" alt="Luxury Shopping">
-                <div class="hero-overlay">
-                    <div class="hero-label">Buyer Service from China</div>
-                    <h1 class="hero-title">
-                        Премиальный<br>
-                        байер-сервис<br>
-                        <em>для ваших</em><br>
-                        желаний
-                    </h1>
-                    <p class="hero-text">
-                        1:1 копии люксовых брендов с 1688, Taobao, Poizon. 
-                        Доставка по всей Беларуси.
-                    </p>
-                    <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
-                    <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
-                </div>
+            <div class="hero-label">WISHLIST FROM CHINA</div>
+            <h1 class="hero-title">
+                Премиальный<br>
+                байер-сервис<br>
+                <em>для ваших</em><br>
+                wishlist-позиций
+            </h1>
+            <p class="hero-text">
+                Находим желанные модели, подбираем лучшее качество, 
+                проверяем каждую деталь и сопровождаем заказ до получения.
+            </p>
+            <button class="btn btn-primary" onclick="navigateTo('catalog')">Открыть каталог</button>
+            <br>
+            <button class="btn btn-secondary" onclick="navigateTo('howto')">Как сделать заказ</button>
+
+            <div class="tags-row">
+                <div class="tag">🎬 Видео</div>
+                <div class="tag">🔍 Поиск по референсу</div>
+                <div class="tag">💬 Консультация</div>
             </div>
         </div>
 
@@ -674,14 +646,14 @@
             <div class="category-main">
                 <div class="category-main-item" onclick="openMainCategory('women')">
                     <div>
-                        <div class="category-main-label">Коллекция</div>
+                        <div class="category-main-label">WOMEN</div>
                         <div class="category-main-name">Для неё</div>
                     </div>
                     <div class="category-main-arrow">→</div>
                 </div>
                 <div class="category-main-item" onclick="openMainCategory('men')">
                     <div>
-                        <div class="category-main-label">Коллекция</div>
+                        <div class="category-main-label">MEN</div>
                         <div class="category-main-name">Для него</div>
                     </div>
                     <div class="category-main-arrow">→</div>
@@ -733,42 +705,43 @@
     <div id="catalog" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">Каталог</div>
+            <div class="logo">КАТАЛОГ</div>
             <div style="width: 40px;"></div>
         </div>
 
         <div class="section" style="padding-top: 24px;">
+            <h2 class="section-title">Выберите категорию</h2>
             <div class="sub-category-grid">
                 <div class="sub-category-item" onclick="openSubCategory('shoes')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600" alt="Nike Shoes">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600" alt="Shoes">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Обувь</div>
                         <div class="sub-category-desc">Nike, Jordan, Adidas</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('bags')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="LV Bag">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600" alt="Bags">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Сумки</div>
-                        <div class="sub-category-desc">Louis Vuitton, Gucci</div>
+                        <div class="sub-category-desc">LV, Gucci, Chanel</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('watches')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Rolex Watch">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600" alt="Watches">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Часы</div>
                         <div class="sub-category-desc">Rolex, Patek Philippe</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('clothing')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1551488852-0801751ac367?w=600" alt="Luxury Clothing">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1551488852-0801751ac367?w=600" alt="Clothing">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Одежда</div>
                         <div class="sub-category-desc">Moncler, Stone Island</div>
                     </div>
                 </div>
                 <div class="sub-category-item" onclick="openSubCategory('accessories')">
-                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Cartier Sunglasses">
+                    <img class="sub-category-image" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600" alt="Accessories">
                     <div class="sub-category-info">
                         <div class="sub-category-name">Аксессуары</div>
                         <div class="sub-category-desc">Cartier, Ray-Ban</div>
@@ -782,7 +755,7 @@
     <div id="brands" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('catalog')">←</div>
-            <div class="logo" id="brand-page-title">Бренды</div>
+            <div class="logo" id="brand-page-title">БРЕНДЫ</div>
             <div style="width: 40px;"></div>
         </div>
 
@@ -797,7 +770,7 @@
     <div id="howto" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">Как заказать</div>
+            <div class="logo">КАК ЗАКАЗАТЬ</div>
             <div style="width: 40px;"></div>
         </div>
 
@@ -823,11 +796,11 @@
                 </div>
             </div>
 
-            <div style="margin-top: 48px; padding: 40px 32px; background: var(--color-surface); border: 0.5px solid var(--color-border);">
-                <div style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 16px; font-weight: 400;">
+            <div style="margin-top: 40px; padding: 32px 24px; background: var(--color-surface); border-radius: 24px; box-shadow: 0 2px 20px rgba(0,0,0,0.04);">
+                <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 16px;">
                     Нужна помощь?
                 </div>
-                <div style="color: var(--color-text-secondary); margin-bottom: 28px; font-size: 14px; line-height: 1.8; font-weight: 300;">
+                <div style="color: var(--color-text-secondary); margin-bottom: 24px; font-size: 14px; line-height: 1.7;">
                     Напишите нам в Telegram<br>
                     Мы поможем с выбором и расчетом
                 </div>
@@ -854,11 +827,11 @@
     <div id="cart" class="page">
         <div class="header">
             <div class="header-back" onclick="navigateTo('home')">←</div>
-            <div class="logo">Оформление</div>
+            <div class="logo">ОФОРМЛЕНИЕ</div>
             <div style="width: 40px;"></div>
         </div>
 
-        <div style="padding: 24px 28px;">
+        <div style="padding: 24px;">
             <div class="form-group">
                 <label class="form-label">Ваше имя <span class="required">*</span></label>
                 <input type="text" class="form-input" id="order-name" placeholder="Иван Иванов">
@@ -905,8 +878,8 @@
                 <button class="btn btn-primary" onclick="submitOrder()" style="margin-top: 24px; width: 100%;">
                     Отправить заказ
                 </button>
-                <div style="margin-top: 20px; font-size: 12px; color: var(--color-text-secondary); text-align: center; font-weight: 300;">
-                    Менеджер свяжется с вами<br>в течение часа
+                <div style="margin-top: 16px; font-size: 12px; color: var(--color-text-secondary); text-align: center;">
+                    Менеджер свяжется с вами в течение часа
                 </div>
             </div>
         </div>
@@ -941,8 +914,8 @@
 
         <div class="social-links">
             <div class="social-title">Контакты</div>
-            <div style="text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 2; font-weight: 300;">
-                📍 Вся Беларусь<br>
+            <div style="text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 2;">
+                 Вся Беларусь<br>
                 ⏰ Работаем ежедневно<br>
                 💬 Ответ в течение часа
             </div>
@@ -961,7 +934,7 @@
         <div class="nav-label">Каталог</div>
     </div>
     <div class="nav-item" onclick="navigateTo('cart')" data-page="cart">
-        <div class="nav-icon">◉</div>
+        <div class="nav-icon"></div>
         <div class="nav-label">Заказать</div>
     </div>
     <div class="nav-item" onclick="navigateTo('profile')" data-page="profile">
@@ -971,13 +944,11 @@
 </div>
 
 <script>
-    // Telegram Web App init
     const tg = window.Telegram?.WebApp;
     if (tg) {
         tg.expand();
         tg.ready();
         
-        // Get user data
         if (tg.initDataUnsafe?.user) {
             const user = tg.initDataUnsafe.user;
             document.getElementById('profile-name').textContent = user.first_name + (user.last_name ? ' ' + user.last_name : '');
@@ -985,14 +956,12 @@
         }
     }
 
-    // Bot configuration
     const BOT_TOKEN = '8856300434:AAGE0wQdXJJ3NqkaSL9casRJytqYQW4sAfo';
     const CHAT_ID = '5035602724';
 
-    // Brands data
     const brands = {
         shoes: {
-            title: 'Обувь',
+            title: 'ОБУВЬ',
             items: [
                 { name: 'Nike / Jordan', desc: 'Travis Scott, Off-White, Dior' },
                 { name: 'Adidas / Yeezy', desc: 'Boost 350, 500, 700' },
@@ -1004,7 +973,7 @@
             ]
         },
         clothing: {
-            title: 'Одежда',
+            title: 'ОДЕЖДА',
             items: [
                 { name: 'Moncler', desc: 'Пуховики, куртки, жилеты' },
                 { name: 'Canada Goose', desc: 'Expedition, Chateau, Langford' },
@@ -1016,7 +985,7 @@
             ]
         },
         bags: {
-            title: 'Сумки',
+            title: 'СУМКИ',
             items: [
                 { name: 'Louis Vuitton', desc: 'Neverfull, Speedy, Onthego' },
                 { name: 'Gucci', desc: 'Marmont, Dionysus, Jackie' },
@@ -1028,7 +997,7 @@
             ]
         },
         watches: {
-            title: 'Часы',
+            title: 'ЧАСЫ',
             items: [
                 { name: 'Rolex', desc: 'Submariner, Datejust, Daytona' },
                 { name: 'Patek Philippe', desc: 'Nautilus, Aquanaut, Calatrava' },
@@ -1040,7 +1009,7 @@
             ]
         },
         accessories: {
-            title: 'Аксессуары',
+            title: 'АКСЕССУАРЫ',
             items: [
                 { name: 'Cartier', desc: 'Очки, браслеты, кольца' },
                 { name: 'Ray-Ban', desc: 'Aviator, Wayfarer, Clubmaster' },
@@ -1055,7 +1024,6 @@
 
     let currentSubCategory = null;
 
-    // Navigation
     function navigateTo(pageId) {
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
@@ -1096,7 +1064,7 @@
                     <div class="brand-name">${brand.name}</div>
                     <div class="brand-desc">${brand.desc}</div>
                 </div>
-                <div style="color: var(--color-text-secondary); font-size: 22px;">→</div>
+                <div style="color: var(--color-accent); font-size: 22px; font-weight: 700;">→</div>
             </div>
         `).join('');
         
@@ -1167,14 +1135,13 @@
                 document.getElementById('order-comment').value = '';
                 navigateTo('home');
             } else {
-                tg?.showAlert('❌ Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с менеджером напрямую.');
+                tg?.showAlert(' Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с менеджером напрямую.');
             }
         } catch (error) {
             tg?.showAlert('❌ Ошибка соединения. Проверьте интернет и попробуйте снова.');
         }
     }
 
-    // Init
     navigateTo('home');
 </script>
 
